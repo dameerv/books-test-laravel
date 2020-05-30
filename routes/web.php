@@ -17,3 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/books',['uses' => 'BooksController@index', 'as' => 'Books'] );
+//Route::get('/books/{id}',['uses' => 'BooksController@show', 'as' => 'BooksShow'] );
+//Route::get('/books/add',['uses' => 'BooksController@add', 'as' => 'BooksAdd'] );
