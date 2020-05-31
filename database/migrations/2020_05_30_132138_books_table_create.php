@@ -16,10 +16,11 @@ class BooksTableCreate extends Migration
         Schema::create('books', function(Blueprint $table){
             $table->increments('id');
             $table->string('title');
-            $table->string('author');
+            $table->unsignedBigInteger('author_id')->constrained();
             $table->string('description');
             $table->dateTime('updated_at');
             $table->dateTime('created_at');
+//            $table->foreign('author_id')->references('id')->on('authors');
         });
 
     }

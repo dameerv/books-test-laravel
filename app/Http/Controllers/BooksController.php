@@ -14,6 +14,11 @@ class BooksController extends Controller
         return view('books.index', compact('books'));
     }
 
+    public function add()
+    {
+        return view('books.add');
+    }
+
     public function show($id)
     {
         $book = Book::findOrFail($id);
@@ -22,9 +27,11 @@ class BooksController extends Controller
         return view('books.show', compact('book'));
     }
 
-    public function add()
+    public function update($id)
     {
-        return view('books.add');
+        $book = Book::findOrFail($id);
+        return view('books.update', compact('book'));
     }
+
 
 }

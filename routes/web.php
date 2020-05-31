@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/books',['uses' => 'BooksController@index', 'as' => 'Books'] );
-Route::get('/books/{id}',['uses' => 'BooksController@show', 'as' => 'BooksShow'] );
-Route::get('/books/add',['uses' => 'BooksController@add', 'as' => 'BooksAdd'] );
+Route::get('/books/','BooksController@index')->name( 'Books');
+Route::get('/books/add','BooksController@add' )->name('BooksAdd');
+Route::get('/books/{id}','BooksController@show')->name('BooksShow' );
+Route::get('/books/{id}/update','BooksController@update')->name('BooksUpdate' );
+

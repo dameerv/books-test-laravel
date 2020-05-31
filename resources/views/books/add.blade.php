@@ -4,7 +4,7 @@
     <h1>Add new book</h1>
     <hr>
 
-    {{!! Form::open !!}}
+{{--    {{!! Form::open !!}}--}}
 
-    {{!! Form::close !!}}
+{{--    {{!! Form::close !!}}--}}
 @stop()
