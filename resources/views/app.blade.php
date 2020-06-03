@@ -7,6 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <title>Document</title>
+    <style>
+        article{
+            border-radius: 10px;
+            padding: 5px;
+            margin: 20px;
+        }
+    </style>
 </head>
 <body>
 <div class="container">

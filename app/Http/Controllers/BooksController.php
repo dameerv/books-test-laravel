@@ -7,31 +7,19 @@ use Illuminate\Http\Request;
 
 class BooksController extends Controller
 {
-    public function index()
+    public function books()
     {
 
-        $books = Book::all();
-        return view('books.index', compact('books'));
-    }
-
-    public function add()
-    {
-        return view('books.add');
+        $books = Book::paginate(5);
+//        dd($books);
+        return view('public.books.index', compact('books'));
     }
 
     public function show($id)
     {
         $book = Book::findOrFail($id);
 
-
-        return view('books.show', compact('book'));
+        return view('public.books.show', compact('book'));
     }
-
-    public function update($id)
-    {
-        $book = Book::findOrFail($id);
-        return view('books.update', compact('book'));
-    }
-
 
 }

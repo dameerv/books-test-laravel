@@ -19,5 +19,11 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::prefix('/books')->group(function(){
-    Route::get('/list','ApiBooksController@getBooksList')->name( 'ApiBooks');
+    Route::get('/list','ApiBooksController@index')->name( 'ApiGetBooks');
+    Route::get('/{id}','ApiBooksController@show')->name( 'ApiGetBook');
+//    Route::post('/store','ApiBooksController@store')->name( 'ApiPostBook');
+    Route::delete('/{id}','ApiBooksController@destroy')->name( 'ApiDeleteBook')
+                ->where(['id' => '[0-9]+']);
+    Route::put('/{id}/update','ApiBooksController@update')->name( 'ApiUpdateBook')
+                ->where(['id' => '[0-9]+']);
 });

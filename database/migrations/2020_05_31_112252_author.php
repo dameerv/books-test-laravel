@@ -17,6 +17,8 @@ class Author extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('information');
+            $table->dateTime('updated_at');
+            $table->dateTime('created_at');
         });
     }
 
