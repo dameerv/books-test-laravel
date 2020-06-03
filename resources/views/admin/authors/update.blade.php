@@ -1,25 +1,22 @@
-@extends('app')
+@extends('admin.index')
 
 @section('content')
-    <h1>Обновление книги "{{ $book->title }}"</h1>
+    <h1>Обновление информации об авторе "{{ $author->name }}"</h1>
     <hr>
     <div class="row">
         <div class="col-sm-12 col-md-6">
-        <form action="">
+        <form action="" entity="author">
             <article>
                     <div class="form-group">
-                        <label for="title">Название</label>
-                        <input type="text" name="title" value="{{$book->title}}" placeholder="Введите название" id="bookTitleInput" class="form-control">
+                        <label for="title">Имя</label>
+                        <input type="text" name="title" value="{{$author->name}}" placeholder="Введите название" id="authorTitleInput" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="title">Аавтор</label>
-                        <input type="text" name="title" value="{{$book->author}}" placeholder="Введите автора" id="bookAuthorInput" class="form-control">
+                        <label for="title">Информация</label>
+                        <input type="text" name="title" value="{{$author->information}}" placeholder="Введите описание" id="authorDescriptionInput" class="form-control">
                     </div>
-                    <div class="form-group">
-                        <label for="title">Описание</label>
-                        <input type="text" name="title" value="{{$book->description}}" placeholder="Введите описание" id="bookDescriptionInput" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-success">Обновить</button>
+                     @csrf
+                    <button type="submit" id="updateSubmit" class="btn btn-success">Обновить</button>
             </article>
         </form>
         </div>

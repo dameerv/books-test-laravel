@@ -1,4 +1,4 @@
-@extends('app')
+@extends('admin.index')
 
 @section('content')
 <h1>Книги</h1>
@@ -20,11 +20,11 @@
             <tbody>
             @foreach($books as $book)
                 <tr>
-                    <th scope="row">{{$loop->iteration}}</th>
+                    <th scope="row">{{$book->id}}</th>
                     <td>{{ $book->title }}</td>
-                    <td>Otto</td>
+                    <td>{{$book->getAuthor()->name}}</td>
                     <td>{{ $book->description }}</td>
-                    <td><a href="#!" class="btn btn-primary" id="editBookBtn">Изменить</a></td>
+                    <td><a href="{{ route("AdminBooksUpdate", $book->id) }}" class="btn btn-primary" id="editBookBtn">Изменить</a></td>
                 </tr>
             @endforeach
             </tbody>

@@ -11,13 +11,13 @@ class BooksController extends Controller
     {
 
         $books = Book::paginate(5);
-//        dd($books);
+
         return view('public.books.index', compact('books'));
     }
 
     public function show($id)
     {
-        $book = Book::findOrFail($id);
+        $book = Book::find($id);
 
         return view('public.books.show', compact('book'));
     }

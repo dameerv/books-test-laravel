@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::prefix('/books')->group(function(){
-    Route::get('/','BooksController@index')->name( 'Books');
+    Route::get('/','BooksController@books')->name( 'Books');
 
     Route::get('/{id}','BooksController@show')->name('BooksShow' );
 //    Route::get('/{id}/update','BooksController@update')->name('BooksUpdate' );

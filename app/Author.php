@@ -2,7 +2,9 @@
 
 namespace App;
 
+use App\Book;
 use Illuminate\Database\Eloquent\Model;
+
 
 class Author extends Model
 {
@@ -10,4 +12,11 @@ class Author extends Model
         'name',
         'information'
     ];
+
+    public function getBooksQuantity()
+    {
+        $booksCount = Book::where("author_id", $this->id)->count();
+
+        return $booksCount;
+    }
 }

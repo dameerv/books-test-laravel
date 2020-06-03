@@ -1,38 +1,36 @@
-@extends('app')
+@extends('admin.index')
 
 @section('content')
-<h1>Книги</h1>
+<h1>Авторы</h1>
 <hr>
-{{--<div class="row">--}}
-{{--    <div class="col-sm-12 col-md-6">--}}
-<a href="#!" class="btn btn-primary" id="addBookBtn">Добавить</a>
 <div class="mt-3">
         <table class="table">
             <thead>
             <tr>
                 <th scope="col">№</th>
-                <th scope="col">Название</th>
-                <th scope="col">Автор</th>
-                <th scope="col">Описание</th>
+                <th scope="col">Имя</th>
+                <th scope="col">Информация</th>
+                <th scope="col">Книг написал</th>
                 <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
-            @foreach($books as $book)
+            @foreach($authors as $author)
                 <tr>
-                    <th scope="row">{{$loop->iteration}}</th>
-                    <td>{{ $book->title }}</td>
-                    <td>Otto</td>
-                    <td>{{ $book->description }}</td>
-                    <td><a href="#!" class="btn btn-primary" id="editBookBtn">Изменить</a></td>
+                    <th scope="row">{{$author->id}}</th>
+                    <td>{{ $author->name }}</td>
+                    <td>{{ $author->information }}</td>
+                    <td class="text-center">{{ $author->getBooksQuantity() }}</td>
+                    <td><a href="{{ route("AdminAuthorsUpdate", $author->id) }}" class="btn btn-primary" id="editAuthorBtn">Изменить</a></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
 </div>
-@if($books->total() > $books->count())
+
+@if($authors->total() > $authors->count())
     <div class="pt-3 pb-3">
-        {{ $books->links() }}
+        {{ $authors->links() }}
     </div>
 @endif
 

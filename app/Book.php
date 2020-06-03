@@ -13,4 +13,17 @@ class Book extends Model
         'author_id',
         'description'
     ];
+
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+    }
+
+    public function getAuthor()
+    {
+        return Author::find($this->author_id);
+
+    }
 }
