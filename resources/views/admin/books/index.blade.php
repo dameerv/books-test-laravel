@@ -3,9 +3,8 @@
 @section('content')
 <h1>Книги</h1>
 <hr>
-{{--<div class="row">--}}
-{{--    <div class="col-sm-12 col-md-6">--}}
-<a href="#!" class="btn btn-primary" id="addBookBtn">Добавить</a>
+
+<a href="{{ route("AdminBooksAdd") }}" class="btn btn-primary" id="addBookBtn">Добавить</a>
 <div class="mt-3">
         <table class="table">
             <thead>

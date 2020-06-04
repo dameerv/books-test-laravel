@@ -13,32 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::prefix('/books')->group(function(){
-    Route::get('/','BooksController@books')->name( 'Books');
-
-    Route::get('/{id}','BooksController@show')->name('BooksShow' );
-//    Route::get('/{id}/update','BooksController@update')->name('BooksUpdate' );
-});
-
-
-
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Auth::routes();
+Route::get('/','BooksController@books')->name( 'Books');
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::get('/home', 'HomeController@index')->name('home');
 
 //Админка
+
 Route::prefix('/admin')->group(function(){
-    Route::get('/','AdminController@index')->name( 'admin');
-    Route::get('/books','AdminController@books')->name( 'AdminBooks');
-    Route::get('/books/{id}/update','AdminController@booksUpdate')->name( 'AdminBooksUpdate');
-    Route::get('/books/add/','AdminController@booksAdd' )->name('AdminBooksAdd');
-    Route::get('/authors','AdminController@authors')->name( 'AdminAuthors');
-    Route::get('/authors/{id}/update','AdminController@AuthorsUpdate')->name( 'AdminAuthorsUpdate');
-    Route::get('/authors/add/','AdminController@authorsAdd' )->name('AdminAuthorsAdd');
+        Route::get('/','AdminController@index')->name("admin");
+        Route::get('/books','AdminController@books')->name( 'AdminBooks');
+        Route::get('/books/{id}/update','AdminController@booksUpdate')->name( 'AdminBooksUpdate');
+        Route::get('/books/add/','AdminController@booksAdd' )->name('AdminBooksAdd');
+        Route::get('/authors','AdminController@authors')->name( 'AdminAuthors');
+        Route::get('/authors/{id}/update','AdminController@AuthorsUpdate')->name( 'AdminAuthorsUpdate');
+        Route::get('/authors/add/','AdminController@authorsAdd' )->name('AdminAuthorsAdd');
 });
-
-
+Route::get('/books','AdminController@books')->name( 'AdminBooks');
+Route::get('/{id}','BooksController@show')->name('BooksShow' )->where(['id' => '[0-9]+']);

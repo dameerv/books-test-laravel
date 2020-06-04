@@ -19,11 +19,21 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::prefix('/books')->group(function(){
-    Route::get('/list','ApiBooksController@index')->name( 'ApiGetBooks');
-    Route::get('/{id}','ApiBooksController@show')->name( 'ApiGetBook');
-//    Route::post('/store','ApiBooksController@store')->name( 'ApiPostBook');
-    Route::delete('/{id}','ApiBooksController@destroy')->name( 'ApiDeleteBook')
+    Route::get('/list','ApiBooksController@index');
+    Route::post('/add','ApiBooksController@add');
+    Route::get('/{id}','ApiBooksController@show')
+        ->where(['id' => '[0-9]+']);
+//    Route::post('/store','ApiBooksController@store')->name( 'ApiPostBook');0
+    Route::delete('/{id}','ApiBooksController@destroy')
                 ->where(['id' => '[0-9]+']);
-    Route::put('/{id}/update','ApiBooksController@update')->name( 'ApiUpdateBook')
+    Route::post('/update','ApiBooksController@update')
                 ->where(['id' => '[0-9]+']);
+});
+
+Route::prefix('/authors')->group(function(){
+    Route::get('/list','ApiAuthorsController@index');
+    Route::post('/add','ApiAuthorsController@add');
+    Route::delete('/{id}','ApiAuthorsController@destroy')
+        ->where(['id' => '[0-9]+']);
+    Route::post('/update','ApiAuthorsController@update');
 });

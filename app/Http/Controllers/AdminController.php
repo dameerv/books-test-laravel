@@ -21,8 +21,13 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('admin.index' );
+            return view('admin.index' );
     }
+
+    /**
+     * @param Book $book
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function books(Book $book)
     {
         $books = $book->paginate(7);
@@ -37,11 +42,18 @@ class AdminController extends Controller
         return view('admin.books.update', compact('book' ) );
     }
 
+    /**
+     *
+     */
     public function booksAdd()
     {
-        dd(__METHOD__);
+        return view('admin.books.add');
     }
 
+    /**
+     * @param Author $author
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function authors(Author $author)
     {
         $authors = $author->paginate(5);
@@ -49,15 +61,21 @@ class AdminController extends Controller
         return view('admin.authors.index', compact('authors') );
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function authorsUpdate($id)
     {
         $author = Author::find($id);
         return view('admin.authors.update', compact('author') );
     }
 
+    /**
+     *
+     */
     public function authorsAdd()
     {
-        dd(__METHOD__);
+        return view('admin.authors.add');
     }
-
 }

@@ -6,3 +6,17 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+.authors-list {
+    position: inherit;
+    background-color: #fff;
+    min-width: 100px;
+    padding: 10px;
+    left: 7%;
+    bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+li{
+    list-style-type: none;
+}
+

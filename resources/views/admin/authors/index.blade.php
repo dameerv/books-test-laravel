@@ -3,6 +3,7 @@
 @section('content')
 <h1>Авторы</h1>
 <hr>
+<a href="{{ route("AdminAuthorsAdd") }}" class="btn btn-primary" id="addBookBtn">Добавить</a>
 <div class="mt-3">
         <table class="table">
             <thead>

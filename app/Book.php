@@ -26,4 +26,6 @@ class Book extends Model
         return Author::find($this->author_id);
 
     }
+
+
 }
